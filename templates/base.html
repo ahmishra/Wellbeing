@@ -20,27 +20,27 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
 
-    <!-- Fonts - STIX Two Feet, Style Script -->
+    <!-- Fonts - STIX Two Feet, Style Script, Retro -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;1,400;1,600&family=Style+Script&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;1,400;1,600&family=Style+Script&display=swap"rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-
-    <nav class="navbar navbar-expand-sm fixed-top navbar-dark" style="padding: 25px;">
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-sm fixed-top navbar-light bg-light" style="padding: 15px; box-shadow: 0 33px 35px rgba(0, 0, 0, 0.12);">
         <div class="container-fluid">
-            <a class="navbar-brand brand" href="{{ url_for('main') }}">Wellbeing</a>
+            <a class="navbar-brand brand" href="{{ url_for('home') }}" style="font-size: 30px;">Wellbeing</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" style="font-size: 14px;">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a>
                     </li>
 
                     <li class="nav-item">
@@ -59,11 +59,10 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="box-shadow: 0px 2px 30px #212121;">
                             <li><a class="dropdown-item" href="#">Covid 19</a></li>
                             <li><a class="dropdown-item" href="#">Health Insurance</a></li>
-                            <li><a class="dropdown-item" href="#">Heart Failure</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: dimgray;">Credits</a>
+                        <a class="nav-link" href="{{ url_for('credits') }}" style="color: dimgray;">Credits</a>
                     </li>
                 </ul>
             </div>
@@ -77,29 +76,6 @@
 
 <!-- Tilt.Js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.1/vanilla-tilt.min.js"></script>
-
-<script>
-    $(window).scroll(function () {
-            if ($(window).scrollTop() >= 100) {
-                $('.navbar').removeClass('navbar-dark');
-                $('.navbar').addClass('navbar-light');
-                $('.navbar').css('background', 'white');
-                $('.navbar').css('color', 'white');
-                $('.navbar').css('box-shadow', '0px 0px 50px #212121');
-                $('.navbar').css('transition', 'ease(2s)');
-
-            } else {
-                $('.navbar').removeClass('navbar-light');
-                $('.navbar').addClass("navbar-dark");
-                $('.navbar').css('background', 'transparent');
-                $('.navbar').css('color', 'white');
-                $('.navbar').css('box-shadow', 'none');
-                $('.navbar').css('transition', 'ease(2s)');
-            }
-        });
-
-</script>
-
 </body>
 </html>
 
