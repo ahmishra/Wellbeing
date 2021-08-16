@@ -1,18 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock title %}</title>
+{% block title %}
+Wellbeing - We got you covered
+{% endblock title %}
 
-    <!-- CSS -->
-    <link href="{{url_for('static', filename='styles/index.css')}}" rel="stylesheet">
-</head>
 
-<body>
-    {% include 'navbar.html' %}
-</body>
+{% block content %}
 
-</html>
+    
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='images/illustration_doctors.jpg') }}" class="d-block w-100" style="filter: brightness(25%); height: 100vh; width: 100%;">
+                <div class="carousel-caption d-none d-md-block" style="top: 40%;">
+                    <h2 style="font-weight: 200; font-size: 38px;" class="brand">Wellbeing</h2>
+                    <p style="font-weight: 700; padding-top: 5px; font-size: 32px;">
+                        We've got you covered
+                    </p>
+                    <p style="font-weight: 600;" class="text-muted">Your personal, trainee, coach and doctor</p>
+                    <button type="button" class="btn btn-lg" style="background-color: #11772D; border-radius: 50px; color: white; padding: 12px; box-shadow: 0px ;">Sign Me Up!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock content %}
