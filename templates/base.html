@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
 
+    <!-- JQUERY -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
     <!-- Bootstrap V5.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,14 +26,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;1,400;1,600&family=Style+Script&display=swap"
         rel="stylesheet">
-
 </head>
 <body>
     
 
     <nav class="navbar navbar-expand-sm fixed-top navbar-dark" style="padding: 25px;">
         <div class="container-fluid">
-            <a class="navbar-brand brand" href="#">Wellbeing</a>
+            <a class="navbar-brand brand" href="{{ url_for('main') }}">Wellbeing</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,6 +41,14 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about-us">About Us</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -53,12 +62,8 @@
                             <li><a class="dropdown-item" href="#">Heart Failure</a></li>
                         </ul>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Credits</a>
+                        <a class="nav-link" href="#" style="color: dimgray;">Credits</a>
                     </li>
                 </ul>
             </div>
@@ -69,5 +74,28 @@
     {% block content %}
     {% endblock content %}
 
+
+<!-- Tilt.Js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.1/vanilla-tilt.min.js"></script>
+
+<script>
+    $(window).scroll(function () {
+            if ($(window).scrollTop() >= 100) {
+                $('.navbar').removeClass('navbar-dark');
+                $('.navbar').addClass('navbar-light');
+                $('.navbar').css('background', 'crimson');
+                $('.navbar').css('color', 'white');
+            } else {
+                $('.navbar').removeClass('navbar-light');
+                $('.navbar').addClass("navbar-dark");
+                $('.navbar').css('background', 'transparent');
+                $('.navbar').css('color', 'white');
+            }
+        });
+
+</script>
+
 </body>
 </html>
+
+<!-- Theme color : 11772D -->
