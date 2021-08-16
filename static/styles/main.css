@@ -118,3 +118,8 @@ body {
     border: none;
     border-radius: 20px;
 }
+
+nav.navbar{
+   -webkit-transition: all 1s ease;
+   transition: all 1s ease;
+}
