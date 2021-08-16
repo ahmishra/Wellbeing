@@ -1,4 +1,18 @@
-{% extends "base.html" %}
-{% block title %}
-Wellbeing - We got you covered
-{% endblock title %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+
+    <!-- CSS -->
+    <link href="{{url_for('static', filename='styles/index.css')}}" rel="stylesheet">
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+</body>
+
+</html>
