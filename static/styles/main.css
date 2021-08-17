@@ -152,5 +152,13 @@ nav.navbar{
     animation: bgcolor 10s infinite;
     -webkit-animation-direction: alternate;
     animation-direction: alternate;
-    font-family: 'Press Start 2P', cursive;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.form-design {
+    box-shadow:0 24.7px 62.6px rgba(0, 0, 0, 0.095),0 197px 500px rgba(0, 0, 0, 0.19); height: 450px; padding: 50px; margin-top: 180px; border-radius: 20px; background-color: beige;
+}
+
+.form-design-select {
+    border-radius: 5px; padding: 10px; outline: none; border: none;
 }

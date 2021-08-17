@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}
+Wellbeing | Covid Test
+{% endblock title %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="jumbotron container form-design">
+            <form method="POST" class="container">
+                <h3 style="font-weight: 700;">Covid Predicter</h3>
+                <p class="text-muted" style="font-weight: bolder;">Give simple answers like Yes / No and get whether you are Covid Positive or Negative!</p>
+                <br>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="cough">Do you have cough?</label>
+                        <select name="cough" id="cough" class="form-design-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No">Nope</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="fever">Do you have fever?</label>
+                        <select name="fever" id="fever" class="form-design-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No">Nope</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="throat">Do you have a sore throat?</label>
+                        <select name="throat" id="throat" class="form-design-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No">Nope</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col">
+                        <label for="breath">Do you feel shortness of breath?</label>
+                        <select name="breath" id="breath" class="form-design-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No">Nope</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="headache">Do you have a head ache?</label>
+                        <select name="headache" id="headache" class="form-design-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No">Nope</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="60">Are you above 60?</label>
+                        <select name="60" id="60" class="form-design-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No">Nope</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-top: 50px;">
+                    <div class="col">
+                        <label for="malefemale">Male or Female?</label>
+                        <select name="malefemale" id="malefemale" class="form-design-select">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="placeholder">Do you ever feel nauseous?</label>
+                        <select name="placeholder" id="placeholder" class="form-design-select">
+                            <option value="Yes">Yes</option>
+                            <option value="No">Nope</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="submit" value="Get Estimation" class="btn btn-lg btn-outline-success" style="width: 230px;">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

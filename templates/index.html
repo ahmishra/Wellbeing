@@ -18,9 +18,9 @@ Wellbeing | We got you covered
                         We've got you covered
                     </p>
                     <p style="font-weight: 600;" class="text-muted">Your personal, trainee, coach and doctor</p>
-                    <button type="button" class="btn btn-lg" style="background-color: #11772D; border-radius: 50px; color: white; padding: 12px; box-shadow: 0px 0px 100px #212121; margin-top: 12px;">
+                    <a type="button" href="#about-us" class="btn btn-lg" style="background-color: #11772D; border-radius: 50px; color: white; padding: 12px; box-shadow: 0px 0px 100px #212121; margin-top: 12px;">
                         Sign Me Up!
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -35,15 +35,16 @@ Wellbeing | We got you covered
                 <h1 style="font-weight: bolder; margin-top: 15px;">About Us</h1>
                 <div class="text">
                     <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta totam voluptas numquam iste atque placeat
-                        dolor,
-                        iusto sint voluptate aut tenetur, voluptates vero itaque? Nobis maxime pariatur dolor soluta illum!
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta totam voluptas numquam iste atque placeat
-                        dolor,
-                        iusto sint voluptate aut tenetur, voluptates vero itaque? Nobis maxime pariatur dolor soluta illum!
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta totam voluptas numquam iste atque placeat
-                        dolor,
-                        iusto sint voluptate aut tenetur, voluptates vero itaque? Nobis maxime pariatur dolor soluta illum!
+                        Over at, Wellbeing, we insure that you get out of the box user experience, with an easy-to-use, simple, yet
+                        modern design, using state of the art frameworks for our frontend like AJAX, Jquery, CSS5, Flask and for our backend we use Scikit-Learn, Tensorflow and Pandas
+                        to get near perfect predictions / estimations, for you!
+                        <br><br>
+                        <span style="font-weight: bold;">What we provide?</span>
+                        <br>
+                        We provid prediction models like, health insurance cost predicter, Covid-19 predicter, symptom's describer, symptom's curer, and the basic
+                        stuff like BMI and calori calculator. <a href="#features">Show me where!</a>
+                        <br>
+                        <small class="text-muted" style="font-weight: bolder;">Like us? Consider leaving a 5 star rating!</small>
                     </p>
                 </div>
             </div>
@@ -67,7 +68,7 @@ Wellbeing | We got you covered
                             <p class="card-text" style="font-weight: lighter;">
                                 Simply input Yes or No on given questions and get info on whether you are positive or negative. Very useful in current case scenarios!
                             </p>
-                            <a href="#" class="btn btn-outline-success">Take Me There</a>
+                            <a href="{{ url_for('covid_predicter') }}" class="btn btn-outline-success">Take Me There</a>
                         </div>
                     </div>
                     

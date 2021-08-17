@@ -20,13 +20,15 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
 
-    <!-- Fonts - STIX Two Feet, Style Script, Retro -->
+    <!-- Fonts - STIX Two Feet, Style Script,  Pacifico -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;1,400;1,600&family=Style+Script&display=swap"rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- NAV -->
@@ -57,7 +59,7 @@
                             Predicters
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="box-shadow: 0px 2px 30px #212121;">
-                            <li><a class="dropdown-item" href="#">Covid 19</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('covid_predicter') }}">Covid 19</a></li>
                             <li><a class="dropdown-item" href="#">Health Insurance</a></li>
                         </ul>
                     </li>
