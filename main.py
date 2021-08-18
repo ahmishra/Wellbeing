@@ -1,13 +1,8 @@
-from flask import render_template, url_for, redirect, request, Flask
+from flask import render_template, request, Flask
 from joblib import load
-import numpy as np
-from scipy.sparse import data
 
 model_health_insurance = load("Models/health_insurance_model.joblib")
-converter_health_insurance = load("Models/health_insurance_converter.joblib")
-
-scaler_covid = load("Models/covid19_scaler.joblib")
-model_covid = load("Models/covid19_model.joblib")
+scaler_health_insurance = load("Models/health_insurance_scaler.joblib")
 
 app = Flask(__name__)
 
@@ -20,60 +15,52 @@ def home():
 def credits():
     return render_template("credits.html")
 
-@app.route("/covid_predicter", methods=["POST", "GET"])
-def covid_predicter():
+
+@app.route("/heath_insurance_predicter", methods=["GET", "POST"])
+def health_insurance_predicter():
     if request.method == "POST":
-        cough = request.form['cough'].lower()
-        fever = request.form['fever'].lower()
-        sore_throat = request.form['throat'].lower()
-        short_breath = request.form['breath'].lower()
-        headache = request.form['headache'].lower()
-        above_60 = request.form['60'].lower()
-        malefemale = request.form['malefemale'].lower()
+        age = int(request.form['age'])
+        bmi = float(request.form['bmi'])
+        children = int(request.form['children'])
+        region = request.form['region'].lower()
+        gender = request.form['gender'].lower()
+        smoker = request.form['smoker'].lower()
+        region_se = 0
+        region_sw = 0
+        region_ne = 0
+        region_nw = 0
 
-        if cough == "yes":
-            cough = 1
-        elif cough == "no":
-            cough = 0
+        if region == "se":
+            region_se = 1
+        elif region == "sw":
+            region_sw = 1
+        elif region == "ne":
+            region_ne = 1
+        elif region == "nw":
+            region_nw = 1
+
+        if gender == "female":
+            gender = 1
+        else:
+            gender = 0
+
+        if smoker == "yes":
+            smoker = 1
+        else:
+            smoker = 0
+
+        data_to_predict = [[age, gender, bmi,
+                            children, smoker, region_ne, region_nw, region_se, region_sw]]
         
-        if fever == "yes":
-            fever = 1
-        elif fever == "no":
-            fever = 0
 
-        if sore_throat == "yes":
-            sore_throat = 1
-        elif sore_throat == "no":
-            sore_throat = 0
+        data_to_predict = scaler_health_insurance.transform(data_to_predict)
+        prediction = model_health_insurance.predict(data_to_predict)
+        money = int(prediction)
+        print(money)
+        return render_template("health_insurance_results.html", prediction=money)
 
-        if short_breath == "yes":
-            short_breath = 1
-        elif short_breath == "no":
-            short_breath = 0
-
-        if headache == "yes":
-            headache = 1
-        elif headache == "no":
-            headache = 0
-
-        if above_60 == "yes":
-            above_60 = 1
-        elif above_60 == "no":
-            above_60 = 0
-
-        if malefemale == "female":
-            malefemale = 1
-        elif malefemale == "male":
-            malefemale = 0
-
-        data_to_predict = [[cough, fever, sore_throat, short_breath, headache, above_60, malefemale]]
-        data_to_predict = scaler_covid.fit_transform(data_to_predict)
-        prediction = model_covid.predict(data_to_predict)
-        return render_template("covid_prediction_results.html", prediction=prediction)
     else:
-        return render_template("covid_predicter.html")
-
-
+        return render_template("health_insurance_predicter.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
