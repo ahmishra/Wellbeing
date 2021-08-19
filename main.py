@@ -1,11 +1,11 @@
 from flask import render_template, request, Flask
 from joblib import load
 from pandas import read_csv
-from numpy import nan
 
 # Global Variables
 model_health_insurance = load("Models/health_insurance_model.joblib")
 scaler_health_insurance = load("Models/health_insurance_scaler.joblib")
+pipeline_diabetes = load("Models/diabetes_pipeline.joblib")
 symptom_desc = read_csv("Datasets/symptom_desc.csv")
 symptom_desc['Disease'] = symptom_desc['Disease'].apply(lambda x: x.lower())
 symptom_desc = list(symptom_desc.values)
@@ -51,7 +51,13 @@ def credits():
 
 @app.route("/symptom_describer", methods=["POST", "GET"])
 def symptom_describer():
-    return render_template("symptom_describer.html")
+    if request.method == "POST":
+        symptom = str(request.form["disease"]).lower()
+        description = get_symptom_description(symptom)
+        return render_template("symptom_describer.html", description=description)
+
+    else:
+        return render_template("symptom_describer.html")
 
 
 @app.route("/symptom_curer", methods=["POST", "GET"])
@@ -59,11 +65,30 @@ def symptom_curer():
     if request.method == "POST":
         symptom = str(request.form["disease"]).lower()
         precuations = get_symptom_precaution(symptom)
-        print(precuations)
         return render_template("symptom_curer.html", cures=precuations)
     
     else:
         return render_template("symptom_curer.html")
+
+
+@app.route("/diabetes_predicter", methods=["POST", "GET"])
+def diabetes_predicter():
+    if request.method == "POST":
+        pregnancies = int(request.form["pregnancies"])
+        glucose = float(request.form["glucose"])
+        diastolic_bp = float(request.form["diastolic_bp"])
+        skinthick = float(request.form["skinthick"])
+        insulin = int(request.form["insulin"])
+        bmi = float(request.form["bmi"])
+        diabetes_pedigree = float(request.form["diabetes_pedigree"])
+        age = int(request.form["age"])
+
+        data_to_predict = [[pregnancies, glucose, diastolic_bp, skinthick, insulin, bmi, diabetes_pedigree, age]]
+        prediction = int(pipeline_diabetes.predict(data_to_predict)[0])
+        print(prediction)
+        return render_template("diabetes_results.html", prediction=prediction)
+    else:
+        return render_template("diabetes_predicter.html")
 
 
 @app.route("/heath_insurance_predicter", methods=["GET", "POST"])

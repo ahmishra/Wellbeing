@@ -5,14 +5,64 @@ Wellbeing | Symptom Describer
 
 {% block content %}
 
-    <div class="container">
-        <div class="jumbotron container form-design">
-            <h3 style="font-weight: 700;">Symptom Describer</h3>
-            <p class="text-muted" style="font-weight: bolder;">Ever thought that health insurance is way-way too expensive? Dont
-                worry, we got you! give simple information like yes
-                and no and your age and magically get the TRUE health insurance cost for you</p>
-            <br>
-        </div>
+<div class="container">
+    <div class="jumbotron container form-design" style="height: 100%; margin-bottom: 30px;">
+        <h3 style="font-weight: 700;">Symptom Describer</h3>
+        <p class="text-muted" style="font-weight: bolder;">Give any common disease (i.e malaria, dengue, allergy,
+            disease, covid, common cold), this gives a description on that disease</p>
+        <br>
+
+        <form method="POST">
+            <div class="row">
+                <div class="col-auto">
+                    <label for="disease" class="col-form-label">Disease Name</label>
+                </div>
+                <div class="col-auto">
+                    <input type="disease" id="disease" name="disease" class="form-control" required>
+                </div>
+                <div class="col-auto">
+                    <input type="submit" value="Get Cure(s)" class="btn btn-success">
+                </div>
+            </div>
+        </form>
+
+        <hr style="height: 5px; margin-top: 30px;">
+
+        {% if description %}
+        {% if description|length == 1 %}
+        <h4>Description on the disease <span style="font-weight:900">{{ description[0][0].capitalize() }}</span></h4>
+
+        <p style="margin-top: 0px;">
+            <a href="{{ url_for('symptom_curer') }}" class="text-muted" style="text-decoration: none; font-weight: bold;">
+                How do I cure it?
+            </a>
+        </p>
+        {% for i in description[0][1:] %}
+        <p>{{ i.capitalize() }}</p>
+        {% endfor %}
+
+        {% else %}
+        <h3 style="font-weight: 900; margin-bottom: 30px;">Possible related diseases...</h3>
+
+        <p style="margin-top: 0px;">
+            <a href="{{ url_for('symptom_curer') }}" class="text-muted" style="text-decoration: none; font-weight: bold;">
+                How do I cure it?
+            </a>
+        </p>
+
+        {% for i in description %}
+        <p>Disease <span style="font-weight: 900;">{{ i[0] }}</span></p>
+            {% for j in i[1:] %}
+            <p>{{ j.capitalize() }}</p>
+            {% endfor %}
+        {% endfor %}
+
+        {% endif %}
+        
+        {% else %}
+        <p>No description available for this disease 🤷‍♂️</p>
+        {% endif %}
     </div>
+</div>
 
 {% endblock content %}

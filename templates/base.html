@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
 
     <!-- JQUERY -->
@@ -20,7 +20,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
 
-    <!-- Fonts - STIX Two Feet, Style Script,  Pacifico -->
+    <!-- Fonts - STIX Two Feet, Style Script -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;1,400;1,600&family=Style+Script&display=swap"rel="stylesheet">
@@ -28,8 +28,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- NAV -->
     <nav class="navbar navbar-expand-sm fixed-top navbar-light bg-light" style="padding: 15px; box-shadow: 0 33px 35px rgba(0, 0, 0, 0.12);">
@@ -59,7 +59,7 @@
                             Predicters
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="box-shadow: 0px 2px 30px #212121;">
-                            <li><a class="dropdown-item" href="{{ url_for('home') }}">Diabetes</a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('diabetes_predicter') }}">Diabetes</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('health_insurance_predicter') }}">Health Insurance</a></li>
                         </ul>
                     </li>
