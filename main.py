@@ -133,7 +133,7 @@ def diabetes_predicter():
 @app.route("/heath_insurance_predicter", methods=["GET", "POST"])
 def health_insurance_predicter():
     """
-   Predicts calue of health insurance
+    Predicts calue of health insurance
     """
 
     if request.method == "POST":
