@@ -1,3 +1,5 @@
+<!-- Diabetes prediction form -->
+
 {% extends "base.html" %}
 {% block title %}
 Wellbeing | Diabetes Predicter
@@ -7,90 +9,90 @@ Wellbeing | Diabetes Predicter
 {% block content %}
 <div class="container">
     <div class="jumbotron form-design" style="height: 100%;">
-            <form method="POST">
-                <h3 style="font-weight: 700;">Diabetes Predicter</h3>
-                <p class="text-muted" style="font-weight: bolder;">Enter simple information about your medical / health condition and get whether are you diabetic or not!</p>
-                <br>
-                
-                <div class="row">
+        <form method="POST">
+            <h3 style="font-weight: 700;">Diabetes Predicter</h3>
+            <p class="text-muted" style="font-weight: bolder;">Enter simple information about your medical / health condition and get whether are you diabetic or not!</p>
+            
+            <br>
+            
+            <div class="row">
+                    <div class="col-3">
+                        <label for="pregnancies" style="font-weight: bolder; margin-top: 17px;">
+                            <a style="text-decoration: none;" target="_" href="https://en.wikipedia.org/wiki/Pregnancy">
+                                Pregnancies
+                            </a>
+                        </label>
+                        <input type="number" class="form-control" id="pregnancies" name="pregnancies" style="margin-top: 10px;" required>
+                    </div>
 
-                        <div class="col-3">
-                            <label for="pregnancies" style="font-weight: bolder; margin-top: 17px;">
-                                <a style="text-decoration: none;" target="_" href="https://en.wikipedia.org/wiki/Pregnancy">
-                                    Pregnancies
-                                </a>
-                            </label>
-                            <input type="number" class="form-control" id="pregnancies" name="pregnancies" style="margin-top: 10px;" required>
-                        </div>
+                    <div class="col-3">
+                        <label for="glucose" style="font-weight: bolder; margin-top: 17px;">
+                            <a style="text-decoration: none;" target="_" href="https://en.wikipedia.org/wiki/Glucose">
+                                Glucose
+                            </a>
+                        </label>
+                        <input type="number" class="form-control" id="glucose" name="glucose" style="margin-top: 10px;"  step="0.01" required>
+                    </div>
 
-                        <div class="col-3">
-                            <label for="glucose" style="font-weight: bolder; margin-top: 17px;">
-                                <a style="text-decoration: none;" target="_" href="https://en.wikipedia.org/wiki/Glucose">
-                                    Glucose
-                                </a>
-                            </label>
-                            <input type="number" class="form-control" id="glucose" name="glucose" style="margin-top: 10px;"  step="0.01" required>
-                        </div>
+                    <div class="col-3">
+                        <label for="diastolic_bp" style="font-weight: bolder; margin-top: 17px;">
+                            <a style="text-decoration: none;" target="_" href="https://www.ncbi.nlm.nih.gov/books/NBK279251/">
+                                Diastolic Blood Pressure (mm Hg)
+                            </a>
+                        </label>
+                        <input type="number" class="form-control" id="diastolic_bp" name="diastolic_bp" style="margin-top: 10px;"  step="0.01" required>
+                    </div>
 
-                        <div class="col-3">
-                            <label for="diastolic_bp" style="font-weight: bolder; margin-top: 17px;">
-                                <a style="text-decoration: none;" target="_" href="https://www.ncbi.nlm.nih.gov/books/NBK279251/">
-                                    Diastolic Blood Pressure (mm Hg)
-                                </a>
-                            </label>
-                            <input type="number" class="form-control" id="diastolic_bp" name="diastolic_bp" style="margin-top: 10px;"  step="0.01" required>
-                        </div>
+                    <div class="col-3">
+                        <label for="skinthick" style="font-weight: bolder; margin-top: 17px;">
+                            <a style="text-decoration: none;" target="_" href="https://medical-dictionary.thefreedictionary.com/triceps+skin-fold+thickness">
+                                Triceps skin Thickness (mm)
+                            </a>
+                        </label>
+                        <input type="number" class="form-control" id="skinthic" name="skinthick" style="margin-top: 10px;"  step="0.01" required>
+                    </div>
+                    
+                    <div class="col-3">
+                        <label for="insulin" style="font-weight: bolder; margin-top: 17px;">
+                            <a style="text-decoration: none;" target="_" href="https://www.healthtestingcenters.com/test/glucose-tolerance-test-insulin-2-hour/">
+                                2 hour insulin test(mu U/ml)
+                            </a>
+                        </label>
+                        <input type="number" class="form-control" id="insulin"  step="0.01" name="insulin" style="margin-top: 10px;" placeholder="0 if you didn't do a insulin test"  required>
+                    </div>
+                    
+                    <div class="col-3">
+                        <label for="bmi" style="font-weight: bolder; margin-top: 17px;">
+                            <a style="text-decoration: none;" target="_" href="https://en.wikipedia.org/wiki/Body_mass_index">
+                                BMI
+                            </a>
+                        </label>
+                        <input type="number" class="form-control"  step="0.01" id="bmi" name="bmi" style="margin-top: 10px;">
+                    </div>
 
-                        <div class="col-3">
-                            <label for="skinthick" style="font-weight: bolder; margin-top: 17px;">
-                                <a style="text-decoration: none;" target="_" href="https://medical-dictionary.thefreedictionary.com/triceps+skin-fold+thickness">
-                                    Triceps skin Thickness (mm)
-                                </a>
-                            </label>
-                            <input type="number" class="form-control" id="skinthic" name="skinthick" style="margin-top: 10px;"  step="0.01" required>
-                        </div>
-                        
-                        <div class="col-3">
-                            <label for="insulin" style="font-weight: bolder; margin-top: 17px;">
-                                <a style="text-decoration: none;" target="_" href="https://www.healthtestingcenters.com/test/glucose-tolerance-test-insulin-2-hour/">
-                                    2 hour insulin test(mu U/ml)
-                                </a>
-                            </label>
-                            <input type="number" class="form-control" id="insulin"  step="0.01" name="insulin" style="margin-top: 10px;" placeholder="0 if you didn't do a insulin test"  required>
-                        </div>
-                        
-                        <div class="col-3">
-                            <label for="bmi" style="font-weight: bolder; margin-top: 17px;">
-                                <a style="text-decoration: none;" target="_" href="https://en.wikipedia.org/wiki/Body_mass_index">
-                                    BMI
-                                </a>
-                            </label>
-                            <input type="number" class="form-control"  step="0.01" id="bmi" name="bmi" style="margin-top: 10px;">
-                        </div>
+                    <div class="col-3">
+                        <label for="diabetes_predigree" style="font-weight: bolder; margin-top: 17px;">
+                            <a style="text-decoration: none;" target="_" href="https://github.com/susanli2016/Machine-Learning-with-Python/issues/26#:~:text=A%20particularly%20interesting%20attribute%20used,those%20relatives%20to%20the%20patient.">
+                                Diabetes pedigree function
+                            </a>
+                        </label>
+                        <input type="number" class="form-control" step="0.01" name="diabetes_pedigree" style="margin-top: 10px;" placeholder="0-1. 0 means 0% and 1 means 100%" required>
+                    </div>
+                    
+                    <div class="col-3">
+                        <label for="age" style="font-weight: bolder; margin-top: 17px;">
+                            <a style="text-decoration: none;" target="_" href="https://en.wikipedia.org/wiki/Ageing">
+                                Age
+                            </a>
+                        </label>
+                        <input type="number" class="form-control" step="0.01" id="age" name="age" style="margin-top: 10px; ">
+                    </div>
 
-                        <div class="col-3">
-                            <label for="diabetes_predigree" style="font-weight: bolder; margin-top: 17px;">
-                                <a style="text-decoration: none;" target="_" href="https://github.com/susanli2016/Machine-Learning-with-Python/issues/26#:~:text=A%20particularly%20interesting%20attribute%20used,those%20relatives%20to%20the%20patient.">
-                                    Diabetes pedigree function
-                                </a>
-                            </label>
-                            <input type="number" class="form-control" step="0.01" name="diabetes_pedigree" style="margin-top: 10px;" placeholder="0-1. 0 means 0% and 1 means 100%" required>
-                        </div>
-                        
-                        <div class="col-3">
-                            <label for="age" style="font-weight: bolder; margin-top: 17px;">
-                                <a style="text-decoration: none;" target="_" href="https://en.wikipedia.org/wiki/Ageing">
-                                    Age
-                                </a>
-                            </label>
-                            <input type="number" class="form-control" step="0.01" id="age" name="age" style="margin-top: 10px; ">
-                        </div>
-
-                        <div class="col-3">
-                            <input type="submit" style="margin-top: 25px;" class="btn btn-lg btn-outline-success" value="Get Prediction">
-                        </div>
-                </div>
-            </form>
+                    <div class="col-3">
+                        <input type="submit" style="margin-top: 25px;" class="btn btn-lg btn-outline-success" value="Get Prediction">
+                    </div>
+            </div>
+        </form>
     </div>
 </div>
 {% endblock content %}

@@ -1,3 +1,5 @@
+<!-- File to take disease name from user and return desc on disease -->
+
 {% extends "base.html" %}
 {% block title %}
 Wellbeing | Symptom Describer
@@ -28,6 +30,8 @@ Wellbeing | Symptom Describer
 
         <hr style="height: 5px; margin-top: 30px;">
 
+
+        <!-- Logic to display description -->
         {% if description %}
         {% if description|length == 1 %}
         <h4>Description on the disease <span style="font-weight:900">{{ description[0][0].capitalize() }}</span></h4>
@@ -64,5 +68,4 @@ Wellbeing | Symptom Describer
         {% endif %}
     </div>
 </div>
-
 {% endblock content %}

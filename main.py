@@ -1,3 +1,4 @@
+# Imports
 from flask import render_template, request, Flask
 from joblib import load
 from pandas import read_csv
@@ -13,6 +14,8 @@ symptom_precaution = read_csv("Datasets/symptom_precaution.csv")
 symptom_precaution['Disease'] = symptom_precaution['Disease'].apply(lambda x: x.lower())
 symptom_precaution = list(symptom_precaution.values)
 
+
+# Helper functions
 def get_symptom_description(symptom):
     symptom = symptom.lower()
     results = []
@@ -34,21 +37,26 @@ def get_symptom_precaution(symptom):
 
     return results
 
+
 # Initializing App
 app = Flask(__name__)
 
 
 # App routes and logic
+
+# Home page
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
+# Credits Page
 @app.route("/credits")
 def credits():
     return render_template("credits.html")
 
 
+# Symptom Describer
 @app.route("/symptom_describer", methods=["POST", "GET"])
 def symptom_describer():
     if request.method == "POST":
@@ -60,6 +68,7 @@ def symptom_describer():
         return render_template("symptom_describer.html")
 
 
+# Symptom Curer
 @app.route("/symptom_curer", methods=["POST", "GET"])
 def symptom_curer():
     if request.method == "POST":
@@ -71,6 +80,7 @@ def symptom_curer():
         return render_template("symptom_curer.html")
 
 
+# Diabetes predicter and logic
 @app.route("/diabetes_predicter", methods=["POST", "GET"])
 def diabetes_predicter():
     if request.method == "POST":
@@ -91,6 +101,7 @@ def diabetes_predicter():
         return render_template("diabetes_predicter.html")
 
 
+# Health Insurance and logic
 @app.route("/heath_insurance_predicter", methods=["GET", "POST"])
 def health_insurance_predicter():
     if request.method == "POST":
@@ -138,6 +149,6 @@ def health_insurance_predicter():
         return render_template("health_insurance_predicter.html")
 
 
-
+# Running App
 if __name__ == "__main__":
     app.run(debug=True)

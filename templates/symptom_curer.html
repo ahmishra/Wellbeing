@@ -1,3 +1,5 @@
+<!-- File to take disease name from user and return possible cures -->
+
 {% extends "base.html" %}
 {% block title %}
 Wellbeing | Symptom Curer
@@ -5,58 +7,60 @@ Wellbeing | Symptom Curer
 
 {% block content %}
 
-    <div class="container">
-        <div class="jumbotron container form-design" style="height: 100%; margin-bottom: 30px;">
-            <h3 style="font-weight: 700;">Symptom Curer</h3>
-            <p class="text-muted" style="font-weight: bolder;">Give any common disease (i.e malaria, dengue, allergy, disease, covid, common cold), this gives a cure on that disease</p>
-            <br>
-            
-            <form method="POST">
-                <div class="row">
-                    <div class="col-auto">
-                        <label for="disease" class="col-form-label">Disease Name</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="disease" id="disease" name="disease" class="form-control" required>
-                    </div>
-                    <div class="col-auto">
-                        <input type="submit" value="Get Cure(s)" class="btn btn-success">
-                    </div>
+<!-- Form -->
+<div class="container">
+    <div class="jumbotron container form-design" style="height: 100%; margin-bottom: 30px;">
+        <h3 style="font-weight: 700;">Symptom Curer</h3>
+        <p class="text-muted" style="font-weight: bolder;">Give any common disease (i.e malaria, dengue, allergy, disease, covid, common cold), this gives a cure on that disease</p>
+        <br>
+        
+        <form method="POST">
+            <div class="row">
+                <div class="col-auto">
+                    <label for="disease" class="col-form-label">Disease Name</label>
                 </div>
-            </form>
+                <div class="col-auto">
+                    <input type="disease" id="disease" name="disease" class="form-control" required>
+                </div>
+                <div class="col-auto">
+                    <input type="submit" value="Get Cure(s)" class="btn btn-success">
+                </div>
+            </div>
+        </form>
 
-            <hr style="height: 5px; margin-top: 30px;">
-            
-            {% if cures %}
-            {% if cures|length == 1 %}
-            <h4>For the disease <span style="font-weight:900">{{ cures[0][0].capitalize() }}</span>, follow these cures</h4>
+        <hr style="height: 5px; margin-top: 30px;">
+        
 
-            <p style="margin-top: 0px;">
-                <a href="{{ url_for('symptom_describer') }}" class="text-muted" style="text-decoration: none; font-weight: bold;">
-                    What does this mean?
-                </a>
-            </p>
+        <!-- Logic to display possible / avail cures -->
+        {% if cures %}
+        {% if cures|length == 1 %}
+        <h4>For the disease <span style="font-weight:900">{{ cures[0][0].capitalize() }}</span>, follow these cures</h4>
 
-            <ul>
-                {% for i in cures[0][1:] %}
-                <li>{{ i.capitalize() }}</li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            <h3 style="font-weight: 900; margin-bottom: 30px;">Possible related diseases...</h3>
-            {% for i in cures %}
-            <p>Disease <span style="font-weight: 900;">{{ i[0] }}</span></p>
-            <ul>
-                {% for j in i[1:] %}
-                <li>{{ j.capitalize() }}</li>
-                {% endfor %}
-            </ul>
+        <p style="margin-top: 0px;">
+            <a href="{{ url_for('symptom_describer') }}" class="text-muted" style="text-decoration: none; font-weight: bold;">
+                What does this mean?
+            </a>
+        </p>
+
+        <ul>
+            {% for i in cures[0][1:] %}
+            <li>{{ i.capitalize() }}</li>
             {% endfor %}
-            {% endif %}
-            {% else %}
-            <p>No cures available for this disease 🤷‍♂️</p>
-            {% endif %}
-        </div>
+        </ul>
+        {% else %}
+        <h3 style="font-weight: 900; margin-bottom: 30px;">Possible related diseases...</h3>
+        {% for i in cures %}
+        <p>Disease <span style="font-weight: 900;">{{ i[0] }}</span></p>
+        <ul>
+            {% for j in i[1:] %}
+            <li>{{ j.capitalize() }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+        {% endif %}
+        {% else %}
+        <p>No cures available for this disease 🤷‍♂️</p>
+        {% endif %}
     </div>
-
+</div>
 {% endblock content %}

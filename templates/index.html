@@ -1,3 +1,5 @@
+<!-- Home page html -->
+
 {% extends "base.html" %}
 
 {% block title %}
@@ -7,7 +9,7 @@ Wellbeing | We got you covered
 
 {% block content %}
 
-    
+    <!-- Landing Page -->
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -28,6 +30,8 @@ Wellbeing | We got you covered
 
     <br><br><br><br>
 
+
+    <!-- About Us -->
     <div>
         <div id="about-us" class="container">
             <div style="width: 70%; display: inline-block;">
@@ -54,14 +58,16 @@ Wellbeing | We got you covered
 
         <br><br><br><br><br><br><br><br><br>
 
+
+        <!-- Features -->
         <div id="features">
             <h3 class="brand" style="text-align: center;">Wellbeing</h3>
             <h1 style="font-weight: bolder; margin-top: 15px; text-align: center;">Features</h1>
             
             <div class="container">
-
-                <!-- ROW 1 -->
                 <div class="row container">
+
+                    <!-- Diabetes -->
                     <div class="card style-card" data-tilt data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8">
                         <div class="card-body">
                             <h5 class="card-title" style="font-weight: bolder;">Diabetes Predicter</h5>
@@ -71,6 +77,7 @@ Wellbeing | We got you covered
                         </div>
                     </div>
                     
+                    <!-- Health Insurance -->
                     <div class="card style-card" data-tilt data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8">
                         <div class="card-body">
                             <h5 class="card-title" style="font-weight: bolder;">Health Insurance Cost Predicter</h5>
@@ -81,6 +88,7 @@ Wellbeing | We got you covered
                         </div>
                     </div>
 
+                    <!-- Symptom Describer -->
                     <div class="card style-card" data-tilt data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8">
                         <div class="card-body">
                             <h5 class="card-title" style="font-weight: bolder;">Symptom Describer</h5>
@@ -91,6 +99,7 @@ Wellbeing | We got you covered
                         </div>
                     </div>
 
+                    <!-- Symptom Curer -->
                     <div class="card style-card" data-tilt data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8">
                         <div class="card-body">
                             <h5 class="card-title" style="font-weight: bolder;">Symptom Curer</h5>
@@ -101,6 +110,7 @@ Wellbeing | We got you covered
                         </div>
                     </div>
 
+                    <!-- BMI -->
                     <div class="card style-card" data-tilt data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8">
                         <div class="card-body">
                             <h5 class="card-title" style="font-weight: bolder;">BMI Calculator</h5>
@@ -111,6 +121,7 @@ Wellbeing | We got you covered
                         </div>
                     </div>
 
+                    <!-- Calorie -->
                     <div class="card style-card" data-tilt data-tilt-scale="1.1" data-tilt-glare data-tilt-max-glare="0.8">
                         <div class="card-body">
                             <h5 class="card-title" style="font-weight: bolder;">Calorie Calculator</h5>
@@ -127,7 +138,22 @@ Wellbeing | We got you covered
 
     <br><br><br><br>
     <hr style="width: 75%; height: 5px;" class="container">
-    <p style="text-align: center; font-size: 24px; margin-top: 30px;" class="brand">Made with 💖 by <a href="">Aryan Mishra</a></p>
-    <p style="text-align: center;"><a href="#" >Back to Top</a></p>
-    <p style="font-weight: 900; text-align: center; margin-top: 0px; margin-bottom: 30px;"><small class="text-muted">For August 2021 Timathon, Wellbeing(C) 2021</small></p>
+
+    
+    <!-- Credits -->
+    <p style="text-align: center; font-size: 24px; margin-top: 30px;" class="brand">
+        Made with 💖 by <a href="https://www.github.com/ahmishra/" target="_">Aryan Mishra</a>
+    </p>
+
+    <p style="text-align: center;">
+        <a href="#" >
+            Back to Top
+        </a>
+    </p>
+
+    <p style="font-weight: 900; text-align: center; margin-top: 0px; margin-bottom: 30px;">
+        <small class="text-muted">
+            For August 2021 Timathon, Wellbeing(C) 2021
+        </small>
+    </p>
 {% endblock content %}
