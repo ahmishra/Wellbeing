@@ -17,6 +17,10 @@ symptom_precaution = list(symptom_precaution.values)
 
 # Helper functions
 def get_symptom_description(symptom):
+    """
+    Gets symptom's description given the symptom
+    """
+
     symptom = symptom.lower()
     results = []
     for i in symptom_desc:
@@ -28,6 +32,10 @@ def get_symptom_description(symptom):
 
 
 def get_symptom_precaution(symptom):
+    """
+    Gets symptom's cure(s) given the symptom
+    """
+
     symptom = symptom.lower()
     results = []
     for i in symptom_precaution:
@@ -47,18 +55,30 @@ app = Flask(__name__)
 # Home page
 @app.route("/")
 def home():
+    """
+    Home Page
+    """
+
     return render_template("index.html")
 
 
 # Credits Page
 @app.route("/credits")
 def credits():
+    """
+    Credits Page
+    """
+
     return render_template("credits.html")
 
 
 # Symptom Describer
 @app.route("/symptom_describer", methods=["POST", "GET"])
 def symptom_describer():
+    """
+    Symptom Description Page
+    """
+
     if request.method == "POST":
         symptom = str(request.form["disease"]).lower()
         description = get_symptom_description(symptom)
@@ -71,6 +91,10 @@ def symptom_describer():
 # Symptom Curer
 @app.route("/symptom_curer", methods=["POST", "GET"])
 def symptom_curer():
+    """
+    Symptom Cure(s) Page
+    """
+
     if request.method == "POST":
         symptom = str(request.form["disease"]).lower()
         precuations = get_symptom_precaution(symptom)
@@ -83,6 +107,10 @@ def symptom_curer():
 # Diabetes predicter and logic
 @app.route("/diabetes_predicter", methods=["POST", "GET"])
 def diabetes_predicter():
+    """
+    Predicts Diabetes
+    """
+
     if request.method == "POST":
         pregnancies = int(request.form["pregnancies"])
         glucose = float(request.form["glucose"])
@@ -104,6 +132,10 @@ def diabetes_predicter():
 # Health Insurance and logic
 @app.route("/heath_insurance_predicter", methods=["GET", "POST"])
 def health_insurance_predicter():
+    """
+   Predicts calue of health insurance
+    """
+
     if request.method == "POST":
         age = int(request.form['age'])
         bmi = float(request.form['bmi'])
