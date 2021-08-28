@@ -1,0 +1,94 @@
+{% extends "base.html" %} {% block title %} Wellbeing | BMI Calculator {%
+endblock title %} {% block content %}
+
+<div class="container">
+  <div class="jumbotron form-design" style="height: 100%">
+    <form method="POST">
+      <h3 style="font-weight: 700">BMI Calculator</h3>
+      <p class="text-muted" style="font-weight: bolder">
+        A simple BMI Calculator!
+      </p>
+
+      <br />
+
+      <div class="row">
+        <div class="col-3">
+          <label for="age" style="font-weight: bolder; margin-top: 17px">
+            <span>Age</span>
+          </label>
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            name="age"
+            style="margin-top: 10px"
+            required
+          />
+        </div>
+
+        <div class="col-3">
+          <label for="height" style="font-weight: bolder; margin-top: 17px">
+            <span>Height (cm)</span>
+          </label>
+          <input
+            type="number"
+            class="form-control"
+            id="height"
+            name="height"
+            style="margin-top: 10px"
+            required
+            step="0.01"
+          />
+        </div>
+
+        <div class="col-3">
+          <label for="weight" style="font-weight: bolder; margin-top: 17px">
+            <span>Weight (kg)</span>
+          </label>
+          <input
+            type="number"
+            class="form-control"
+            id="age"
+            name="weight"
+            style="margin-top: 10px"
+            required
+            step="0.01"
+          />
+        </div>
+
+        <div class="col-3">
+          <input
+            type="submit"
+            style="margin-top: 25px"
+            class="btn btn-lg btn-outline-success"
+            value="Get BMI"
+          />
+        </div>
+      </div>
+    </form>
+
+    {% if bmi %}
+    <br />
+    <hr style="height: 3.5px" class="container" />
+    <br />
+    <h2 style="text-align: center; font-weight: bolder">
+      {% if bmi <= 18.5 %}
+      <span>You are underweight 😟</span>
+      {% elif bmi > 18.5 and bmi < 25 %}
+      <span>You are healthy 😀</span>
+      {% elif bmi > 25 and bmi < 30 %}
+      <span>You are overweight 😞</span>
+      {% elif bmi > 30 %}
+      <span>You are obese 🍕</span>
+      {% endif %}
+    </h2>
+    <p class="text-muted" style="font-weight: bolder; text-align: center">
+      Your BMI is {{ bmi }} kg/m2
+    </p>
+    {% else %}
+    <!-- Nothing -->
+    {% endif %}
+  </div>
+</div>
+
+{% endblock content %}

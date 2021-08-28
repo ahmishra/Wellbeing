@@ -181,6 +181,21 @@ def health_insurance_predicter():
         return render_template("health_insurance_predicter.html")
 
 
+# BMI Calculator
+@app.route("/bmicalculator", methods=["POST", "GET"])
+def bmi_calculator():
+    bmi = None
+
+    if request.method == "POST":
+        age = float(request.form["age"])
+        height = float(request.form["height"])
+        weight = float(request.form["weight"])
+
+        bmi = round(weight/(height*height)*10000, 2)
+
+    return render_template("bmi_calculator.html", bmi=bmi)
+
+
 # Running App
 if __name__ == "__main__":
     app.run(debug=True)

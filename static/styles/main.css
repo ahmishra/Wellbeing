@@ -1,18 +1,16 @@
 /* Basic body styles */
 body {
-    font-family: 'STIX Two Text', serif;
-    overflow: overlay;
-    margin: 0px;
-    padding: 0px;
+  font-family: "STIX Two Text", serif;
+  overflow: overlay;
+  margin: 0px;
+  padding: 0px;
 }
-
 
 /* Brand name font */
 .brand {
-    font-family: 'Style Script', cursive;
-    font-weight: bolder;
+  font-family: "Style Script", cursive;
+  font-weight: bolder;
 }
-
 
 /* Scrollbar */
 ::-webkit-scrollbar {
@@ -22,74 +20,80 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #11772D;
+  background: #11772d;
   border-radius: 100px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
-
 /* Styles for cards at index.html */
 .style-card {
-    width: 23rem; padding: 25px; margin: 22px; background-color: #3EECAC;
-    background-image: linear-gradient(64.5deg,  rgba(245,116,185,1) 14.7%, rgba(89,97,223,1) 88.7% );
-    color: wheat;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    border: none;
-    border-radius: 20px;
+  width: 23rem;
+  padding: 25px;
+  margin: 22px;
+  background-color: #3eecac;
+  background-image: linear-gradient(
+    64.5deg,
+    rgba(245, 116, 185, 1) 14.7%,
+    rgba(89, 97, 223, 1) 88.7%
+  );
+  color: wheat;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border: none;
+  border-radius: 20px;
 }
-
 
 /* Animation for credits page background */
 @keyframes bgcolor {
-    0% {
-        background-color: #45a3e5
-    }
+  0% {
+    background-color: #45a3e5;
+  }
 
-    30% {
-        background-color: #66bf39
-    }
+  30% {
+    background-color: #66bf39;
+  }
 
-    60% {
-        background-color: #eb670f
-    }
+  60% {
+    background-color: #eb670f;
+  }
 
-    90% {
-        background-color: #f35
-    }
+  90% {
+    background-color: #f35;
+  }
 
-    100% {
-        background-color: #864cbf
-    }
+  100% {
+    background-color: #864cbf;
+  }
 }
-
 
 /* Applying animation and other basic styling for credits page */
 .credits {
-    -webkit-animation: bgcolor 20s infinite;
-    animation: bgcolor 10s infinite;
-    -webkit-animation-direction: alternate;
-    animation-direction: alternate;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  -webkit-animation: bgcolor 20s infinite;
+  animation: bgcolor 10s infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
-
 
 /* Form layout and design */
 .form-design {
-    box-shadow:0 24.7px 62.6px rgba(0, 0, 0, 0.095),0 197px 500px rgba(0, 0, 0, 0.19);
-    height: 450px;
-    padding: 50px;
-    margin-top: 180px;
-    border-radius: 20px;
-    background-color: white;
+  box-shadow: 0 24.7px 62.6px rgba(0, 0, 0, 0.095),
+    0 197px 500px rgba(0, 0, 0, 0.19);
+  height: 450px;
+  padding: 50px;
+  margin-top: 180px;
+  border-radius: 20px;
+  background-color: white;
 }
-
 
 /* Form select box styls */
 .form-design-select {
-    border-radius: 5px;
-    padding: 10px;
-    outline: none;
-    border: none;
+  border-radius: 5px;
+  padding: 10px;
+  outline: none;
+  border: none;
 }

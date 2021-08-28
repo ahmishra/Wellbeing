@@ -1,63 +1,83 @@
 <!-- Credits -->
 
-{% extends "base.html" %}
-{% block title %}
-Wellbeing | Credits
-{% endblock title %}
+{% extends "base.html" %} {% block title %} Wellbeing | Credits {% endblock
+title %} {% block content %}
 
-{% block content %}
+<div
+  class="container jumbotron credits"
+  style="
+    height: 100%;
+    margin-top: 150px;
+    border-radius: 30px;
+    padding: 50px;
+    border: black 5px solid;
+    color: white;
+  "
+>
+  <!-- Heading -->
+  <h1
+    style="
+      text-align: center;
+      font-size: 48px;
+      font-family: 'Style Script', cursive;
+      font-weight: bolder;
+    "
+  >
+    Credits
+  </h1>
 
-        <div class="container jumbotron credits" style="height: 100%; margin-top: 150px; border-radius: 30px; padding: 50px; border: black 5px solid; color: white;">
+  <br /><br />
 
-            <!-- Heading -->
-            <h1 style="text-align: center; font-size: 48px; font-family: 'Style Script', cursive; font-weight: bolder;">
-                Credits
-            </h1>
+  <!-- About the dev -->
+  <div class="container">
+    <h3 style="text-align: center">About the developer</h3>
+    <br />
+    <p style="text-align: center">
+      <span style="font-weight: bolder">Aryan Mishra</span> - I am a 13 year old
+      school student, machine learning engineer and a web developer! I am
+      innovative and creative, and I like to make stuff that might proove to be
+      usefull in the feature, I participated in this timathon to test out my
+      skills next to other bigger and better developers / programmers than me!
+    </p>
+    <br />
+  </div>
 
+  <hr style="height: 4px; width: 70%" class="container" />
 
-            <br><br>
+  <!-- Credits -->
+  <div style="text-align: center">
+    <p>Machine Learning - Aryan Mishra</p>
+    <br />
+    <p>Front End - Aryan Mishra</p>
+    <br />
+    <p>Back End - Aryan Mishra</p>
+    <br />
 
+    <!-- Courtesy -->
+    <p>
+      Honourable Mentions - Courtesy of
+      <a href="https://www.cdc.gov/" target="_" style="color: white">CDC</a> and
+      <a href="https://www.kaggle.com" target="_" style="color: white"
+        >Kaggle</a
+      >
+      for the Data
+    </p>
 
-            <!-- About the dev -->
-            <div class="container">
-                <h3 style="text-align: center;">About the developer</h3>
-                <br>
-                <p style="text-align: center;"><span style="font-weight: bolder;">Aryan Mishra</span> - I am a 13 year old school student, machine learning engineer and a web developer!
-                    I am innovative and creative, and I like to make stuff that might proove to be usefull in the feature, I participated in this timathon to test out my skills next to other
-                    bigger and better developers / programmers than me!
-                </p>
-                <br>
-            </div>
-            
+    <br />
 
-            <hr style="height: 4px; width: 70%;" class="container">
+    <!-- Contact -->
+    <p>Github: <a href="https://github.com/ahmishra/">Aryan Mishra</a></p>
+    <p>Discord: ImCool#0631</p>
 
+    <br />
+    <hr style="height: 4px; width: 70%" class="container" />
+    <br />
 
-            <!-- Credits -->
-            <div style="text-align: center;">
-                <p>Machine Learning - Aryan Mishra</p><br>
-                <p>Front End - Aryan Mishra</p><br>
-                <p>Back End - Aryan Mishra</p><br>
+    <!-- Thank You :) <3 -->
+    <h2 style="font-weight: bolder">Thank You 💝</h2>
+  </div>
+</div>
 
-                <!-- Courtesy -->
-                <p>
-                    Honourable Mentions - Courtesy of <a href="https://www.cdc.gov/" target="_" style="color: white;">CDC</a>
-                    and <a href="https://www.kaggle.com" target="_" style="color: white;">Kaggle</a>  for the Data
-                </p>
-                
-                <br>
-
-                <!-- Contact -->
-                <p>Github: <a href="https://github.com/ahmishra/">Aryan Mishra</a></p>
-                <p>Discord: ImCool#0631</p>
-
-                <br><hr style="height: 4px; width: 70%;" class="container"><br>
-
-                <!-- Thank You :) <3 -->
-                <h2 style="font-weight: bolder;">Thank You 💝</h2>
-            </div>
-        </div>
-
-        <br><br>
+<br /><br />
 
 {% endblock content %}
