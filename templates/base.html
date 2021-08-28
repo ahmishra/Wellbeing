@@ -88,11 +88,11 @@
             </li>
             <!-- About Us -->
             <li class="nav-item">
-              <a class="nav-link" href="#about-us">About Us</a>
+              <a class="nav-link" href="/#about-us">About Us</a>
             </li>
             <!-- Features -->
             <li class="nav-item">
-              <a class="nav-link" href="#features">Features</a>
+              <a class="nav-link" href="/#features">Features</a>
             </li>
             <!-- Predicter drop-down -->
             <li class="nav-item dropdown">
@@ -146,5 +146,21 @@
 
     <!-- Tilt.Js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.1/vanilla-tilt.min.js"></script>
+
+    <!-- Multiselect JS -->
+    <script>
+      var expanded = false;
+
+      function showCheckboxes() {
+        var checkboxes = document.getElementById("checkboxes");
+        if (!expanded) {
+          checkboxes.style.display = "block";
+          expanded = true;
+        } else {
+          checkboxes.style.display = "none";
+          expanded = false;
+        }
+      }
+    </script>
   </body>
 </html>

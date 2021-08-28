@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block title %} Wellbeing | Calorie Calculator {%
+endblock title %} {% block content %}
+
+<!-- Form -->
+<div class="container">
+  <div
+    class="jumbotron container form-design"
+    style="height: 100%; margin-bottom: 30px"
+  >
+    <h3 style="font-weight: 700">Calorie Calculator</h3>
+    <p class="text-muted" style="font-weight: bolder">
+      Give any common food (i.e Apple, Soup, Burger, Pizza, Ice Cream, Vegies,
+      Fruits ),gives the calories on that disease, if multiple edibles gives the
+      sum of the calories in the edibles and substracts them from your daily
+      calorie required and gives whether do you need more calories or its enough
+      for today!
+    </p>
+    <br />
+
+    <form method="POST">
+      <div class="row">
+        <div class="col-auto">
+          <label for="edible" class="col-form-label"
+            >What stuff did you eat:</label
+          >
+        </div>
+        <div class="col-3">
+          <input
+            type="edible"
+            id="edible"
+            name="edible"
+            class="form-control"
+            required
+            placeholder="For multiple edibles seperate by a comma (,)"
+            width="100%"
+          />
+        </div>
+
+        <div class="col-auto">
+          <input
+            type="number"
+            name="calories"
+            id="calories"
+            placeholder="Expected K Cals / Day"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="col-auto">
+          <input type="submit" value="Get Calories" class="btn btn-success" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock content %}

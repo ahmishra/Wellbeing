@@ -196,6 +196,18 @@ def bmi_calculator():
     return render_template("bmi_calculator.html", bmi=bmi)
 
 
+# Calorie Calculator
+@app.route("/calcalc", methods=["POST", "GET"])
+def calorie_calc():
+    if request.method == "POST":
+        edible = request.form["edible"]
+        expected_cals = int(request.form["calories"])
+        edible = [x.strip() for x in edible.split(',')]
+        if len(edible) == 1:
+            edible = edible[0]
+            
+    return render_template("cal_calc.html")
+
 # Running App
 if __name__ == "__main__":
     app.run(debug=True)
