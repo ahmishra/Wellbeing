@@ -43,6 +43,7 @@ endblock title %} {% block content %}
             id="calories"
             placeholder="Expected K Cals / Day"
             class="form-control"
+            value="1500"
             required
           />
         </div>
@@ -52,6 +53,89 @@ endblock title %} {% block content %}
         </div>
       </div>
     </form>
+
+    <!-- LOGIC TO DISPLAY RESULTS -->
+    {% if results %}
+    <br />
+    <hr style="height: 3.5px" />
+    <br />
+
+    <div>
+      {% if results|length == 1 %}
+
+      <!-- Food info -->
+      <h3>
+        For the food,
+        <span style="font-weight: bolder">
+          {{ results[0]['name'].capitalize() }}
+        </span>
+      </h3>
+
+      <ul>
+        <li>Serving: {{ results[0]['serving'] }}</li>
+        <li>Calories: {{ results[0]['cals'] }}</li>
+      </ul>
+
+      <!-- Calorie tracker -->
+      <h5>
+        <small class="text-muted" style="font-weight: bolder">
+          Calories totaled up: {{ results[0]['cals'] }}
+        </small>
+
+        <br />
+
+        <small class="text-muted" style="font-weight: bolder">
+          {% if expected_cals-results[0]['cals_raw'] > 0 %}
+          <span>
+            Calories left: {{ expected_cals-results[0]['cals_raw'] }} cal
+          </span>
+          {% else %}
+          <span>
+            You have exceded your calorie limit by {{
+            (expected_cals-results[0]['cals_raw'])|abs }}
+          </span>
+          {% endif %}
+        </small>
+      </h5>
+
+      {% else %}
+
+      <!-- If multiple results, logic -->
+      {% for i in results %}
+
+      <!-- Food infp -->
+      <h5>
+        <span style="font-weight: bolder">{{ i['name'].capitalize() }}</span>
+      </h5>
+
+      <ul>
+        <li>Serving: {{ i['serving'] }}</li>
+        <li>Calories: {{ i['cals'] }}</li>
+      </ul>
+
+      <br />
+
+      {% endfor %}
+
+      <!-- Calorie info -->
+      <h5>
+        <small class="text-muted" style="font-weight: bolder">
+          Calories totaled up: {{ summed_cals }} cal
+        </small>
+
+        <br />
+
+        <small class="text-muted" style="font-weight: bolder">
+          {% if cals_left > 0 %}
+          <span>Calories left: {{ cals_left }} cal</span>
+          {% else %}
+          <span>You have execed your calorie limit by {{ cals_left|abs }}</span>
+          {% endif %}
+        </small>
+      </h5>
+      {% endif %}
+    </div>
+    {% endif %}
   </div>
 </div>
 {% endblock content %}

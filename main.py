@@ -7,12 +7,25 @@ from pandas import read_csv
 model_health_insurance = load("Models/health_insurance_model.joblib")
 scaler_health_insurance = load("Models/health_insurance_scaler.joblib")
 pipeline_diabetes = load("Models/diabetes_pipeline.joblib")
-symptom_desc = read_csv("Datasets/symptom_desc.csv")
+
+symptom_desc = read_csv("Datasets/symptom_desc.csv").drop_duplicates()
 symptom_desc['Disease'] = symptom_desc['Disease'].apply(lambda x: x.lower())
 symptom_desc = list(symptom_desc.values)
-symptom_precaution = read_csv("Datasets/symptom_precaution.csv")
+symptom_precaution = read_csv("Datasets/symptom_precaution.csv").drop_duplicates()
 symptom_precaution['Disease'] = symptom_precaution['Disease'].apply(lambda x: x.lower())
 symptom_precaution = list(symptom_precaution.values)
+foodsncals = list(read_csv("Datasets/foodsncals.csv").drop_duplicates().values)
+
+foods = []
+
+# Initilazing Foods
+for i in foodsncals:
+    foods.append({
+        "name":i[0].lower(),
+        "serving":i[1],
+        "cals":i[2],
+        "cals_raw":int(i[2].split()[0])
+    })
 
 
 # Helper functions
@@ -44,6 +57,30 @@ def get_symptom_precaution(symptom):
                 results.append(list(i))
 
     return results
+
+
+
+def get_food_cals(food):
+    """
+    Gets the calories of food given the food
+    """
+
+    results = []
+
+    if type(food) == str:
+        food = food.lower()
+        for i in foods:
+            if food == i['name']:
+                results.append(i)
+    else:
+        for j in food:
+            j = j.lower()
+            for i in foods:
+                if j == i['name']:
+                    results.append(i)
+
+    return results
+
 
 
 # Initializing App
@@ -199,14 +236,25 @@ def bmi_calculator():
 # Calorie Calculator
 @app.route("/calcalc", methods=["POST", "GET"])
 def calorie_calc():
+    results = None
+    summed_cals = []
+    expected_cals = 0
+
     if request.method == "POST":
         edible = request.form["edible"]
         expected_cals = int(request.form["calories"])
         edible = [x.strip() for x in edible.split(',')]
         if len(edible) == 1:
             edible = edible[0]
+        
+        results = get_food_cals(edible)
+
+        if len(results) > 1:
+            for i in results:
+                summed_cals.append(i['cals_raw'])
+        
             
-    return render_template("cal_calc.html")
+    return render_template("cal_calc.html", results=results, summed_cals=sum(summed_cals), cals_left=expected_cals-sum(summed_cals), expected_cals=expected_cals) 
 
 # Running App
 if __name__ == "__main__":
