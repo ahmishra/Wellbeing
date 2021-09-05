@@ -2,10 +2,6 @@
 from flask import render_template, request, Flask
 from joblib import load
 from pandas import read_csv
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField
-from wtforms.validators import InputRequired, Email, Length
-
 
 
 
@@ -113,57 +109,6 @@ def get_food_cals(food):
                     results.append(i)
 
     return results
-
-
-
-
-
-
-
-# Forms
-class LoginForm(FlaskForm):
-    username = StringField("username", validators=[InputRequired(), Length(min=3, max=16)])
-    password = PasswordField("password", validators=[InputRequired(), Length(min=8, max=80)])
-    remember = BooleanField("Remember me")
-    
-
-class RegisterForm(FlaskForm):
-    username = StringField("username", validators=[InputRequired(), Length(min=3, max=16)])
-    email = StringField("email", validators=[InputRequired(), Email(message="The email provided is invalid"), Length(256)])
-    password = PasswordField("password", validators=[InputRequired(), Length(min=8, max=80)])
-
-
-
-
-
-
-
-
-# App routes and logic
-# Login view
-@app.route("/login")
-def login():
-    form = LoginForm()
-    return render_template("login.html", form=form)
-
-
-# Register view
-@app.route("/register")
-def register():
-    form = RegisterForm()
-    return render_template("register.html", form=form)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
