@@ -34,7 +34,7 @@ First of all, clone the repository on your local machine, then run the following
 Sadly due to the size of website's dependencies being larger than 500mb I couldn't seem to find a free host because all of the hosts have a storage cap of 500 MB.
 
 ## About the developer
-Hey this is Aryan Mishra from India I am a 13 year old full-stack web developer / machine learning engineer who loves to code in all kinds of languages, but my preffered language is python due to its simplicity. Moreover I love to program and make stuff that in the future might proove to be helpful.
+Hey this is Aryan Mishra from India I am a 13 year old, full-stack web developer / machine learning engineer, who loves to code in all kinds of languages, but my preffered language is python due to its simplicity. Moreover I love to program and make stuff that in the future might proove to be helpful.
 
 <br>
 
