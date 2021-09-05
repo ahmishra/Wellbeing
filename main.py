@@ -2,12 +2,33 @@
 from flask import render_template, request, Flask
 from joblib import load
 from pandas import read_csv
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField
+from wtforms.validators import InputRequired, Email, Length
+
+
+
+
+
+
+
+
+
+# Initializing App
+app = Flask(__name__)
+app.config["SECRET_KEY"] = "secret"
+
+
+
+
+
+
+
 
 # Global Variables
 model_health_insurance = load("Models/health_insurance_model.joblib")
 scaler_health_insurance = load("Models/health_insurance_scaler.joblib")
 pipeline_diabetes = load("Models/diabetes_pipeline.joblib")
-
 symptom_desc = read_csv("Datasets/symptom_desc.csv").drop_duplicates()
 symptom_desc['Disease'] = symptom_desc['Disease'].apply(lambda x: x.lower())
 symptom_desc = list(symptom_desc.values)
@@ -16,8 +37,24 @@ symptom_precaution['Disease'] = symptom_precaution['Disease'].apply(lambda x: x.
 symptom_precaution = list(symptom_precaution.values)
 foodsncals = list(read_csv("Datasets/foodsncals.csv").drop_duplicates().values)
 
-foods = []
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+foods = []
 # Initilazing Foods
 for i in foodsncals:
     foods.append({
@@ -26,8 +63,6 @@ for i in foodsncals:
         "cals":i[2],
         "cals_raw":int(i[2].split()[0])
     })
-
-
 # Helper functions
 def get_symptom_description(symptom):
     """
@@ -42,8 +77,6 @@ def get_symptom_description(symptom):
                 results.append(list(i))
 
     return results
-
-
 def get_symptom_precaution(symptom):
     """
     Gets symptom's cure(s) given the symptom
@@ -83,11 +116,57 @@ def get_food_cals(food):
 
 
 
-# Initializing App
-app = Flask(__name__)
+
+
+
+
+# Forms
+class LoginForm(FlaskForm):
+    username = StringField("username", validators=[InputRequired(), Length(min=3, max=16)])
+    password = PasswordField("password", validators=[InputRequired(), Length(min=8, max=80)])
+    remember = BooleanField("Remember me")
+    
+
+class RegisterForm(FlaskForm):
+    username = StringField("username", validators=[InputRequired(), Length(min=3, max=16)])
+    email = StringField("email", validators=[InputRequired(), Email(message="The email provided is invalid"), Length(256)])
+    password = PasswordField("password", validators=[InputRequired(), Length(min=8, max=80)])
+
+
+
+
+
+
 
 
 # App routes and logic
+# Login view
+@app.route("/login")
+def login():
+    form = LoginForm()
+    return render_template("login.html", form=form)
+
+
+# Register view
+@app.route("/register")
+def register():
+    form = RegisterForm()
+    return render_template("register.html", form=form)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Home page
 @app.route("/")
@@ -107,6 +186,14 @@ def credits():
     """
 
     return render_template("credits.html")
+
+
+
+
+
+
+
+
 
 
 # Symptom Describer
@@ -141,6 +228,21 @@ def symptom_curer():
         return render_template("symptom_curer.html")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Diabetes predicter and logic
 @app.route("/diabetes_predicter", methods=["POST", "GET"])
 def diabetes_predicter():
@@ -172,7 +274,6 @@ def health_insurance_predicter():
     """
     Predicts calue of health insurance
     """
-
     if request.method == "POST":
         age = int(request.form['age'])
         bmi = float(request.form['bmi'])
@@ -218,6 +319,26 @@ def health_insurance_predicter():
         return render_template("health_insurance_predicter.html")
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # BMI Calculator
 @app.route("/bmicalculator", methods=["POST", "GET"])
 def bmi_calculator():
@@ -253,8 +374,24 @@ def calorie_calc():
             for i in results:
                 summed_cals.append(i['cals_raw'])
         
-            
     return render_template("cal_calc.html", results=results, summed_cals=sum(summed_cals), cals_left=expected_cals-sum(summed_cals), expected_cals=expected_cals) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Running App
 if __name__ == "__main__":
