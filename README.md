@@ -1,7 +1,7 @@
 # Wellbeing
 ![python](https://img.shields.io/badge/python-3.6--3.9-%230000FF)
 ![version](https://img.shields.io/badge/Wellbeing-%20v2.0-brightgreen)
-![codejam](https://img.shields.io/badge/Code%sJam-August%202021-crimson)
+![codejam](https://img.shields.io/badge/Timathon-August%202021-crimson)
 ![build](https://img.shields.io/badge/Build-passing%E2%9C%85-green)
 
 Contents:
@@ -16,7 +16,7 @@ Wellbeing is a complex web app that uses state of the art machine learning algor
 
 <hr>
 
-<div style="text-align:center"><img src="https://i.ibb.co/9HzKcc9/wellbeing.png" width="100%"/></div>.
+<div style="text-align:center"><img src="https://i.ibb.co/9HzKcc9/wellbeing.png" width="100%"/></div>
 
 <br><br>
 
