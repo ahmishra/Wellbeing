@@ -1,7 +1,7 @@
 # Wellbeing
 ![python](https://img.shields.io/badge/python-3.6--3.9-%230000FF)
 ![version](https://img.shields.io/badge/Wellbeing-%20v2.0-brightgreen)
-![timathon](https://img.shields.io/badge/Timathon-August%202021-crimson)
+![codejam](https://img.shields.io/badge/Code%sJam-August%202021-crimson)
 ![build](https://img.shields.io/badge/Build-passing%E2%9C%85-green)
 
 Contents:
@@ -39,4 +39,4 @@ Hey this is Aryan Mishra from India I am a 13 year old, full-stack web developer
 <br>
 
 ### Thank you for checking in at my website!<br>
-### Made with love for August 2021 Timathon 💖
+### Made with love for August 2021 Code Jam 💖
